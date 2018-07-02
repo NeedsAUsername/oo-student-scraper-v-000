@@ -33,7 +33,7 @@ class Scraper
           elsif existing_attribute.include?("github")
               attributes[:gitbhub] = existing_attribute
           end
-      end 
+      end
       attributes
     #   attributes = {}
     #   doc.css(".social-icon-containter a").attribute("href")
@@ -45,4 +45,4 @@ class Scraper
 
 end
 
-binding.pry
+# binding.pry
