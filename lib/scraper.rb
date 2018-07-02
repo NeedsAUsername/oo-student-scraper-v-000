@@ -28,7 +28,7 @@ class Scraper
       existing_attributes.each do |existing_attribute|
           if existing_attribute.include?("twitter")
               attributes[:twitter] = existing_attribute
-          elsif existing_attribute.include?("")
+          elsif existing_attribute.include?("linkedin")
     #   attributes = {}
     #   doc.css(".social-icon-containter a").attribute("href")
     # #   attributes = []
