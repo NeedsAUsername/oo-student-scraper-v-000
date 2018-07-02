@@ -3,6 +3,7 @@ require 'pry'
 require 'nokogiri'
 
 class Scraper
+    attri_reader :attributes, :links
 
   def self.scrape_index_page(index_url)
       html = open(index_url)
@@ -20,8 +21,8 @@ class Scraper
   def self.scrape_profile_page(profile_url)
       html = open(profile_url)
       doc = Nokogiri::HTML(html)
-      attributes = {}
-      links = []
+      @attributes = {}
+      @links = []
       doc.css(".social-icon-containter a").each do |a|
           links << "#{a.attribute("href").value}"
       end
@@ -31,10 +32,10 @@ class Scraper
           elsif link.include?("linkedin")
               attributes[:linkedin] = link
           elsif link.include?("github")
-              attributes[:gitbhub] = link
+              attributes[:github] = link
           end
       end
-      attributes
+      @attributes
     #   attributes = {}
     #   doc.css(".social-icon-containter a").attribute("href")
     # #   attributes = []
