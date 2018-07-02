@@ -5,7 +5,7 @@ class Scraper
 
   def self.scrape_index_page(index_url)
       html = open(index_url)
-      doc = nokogiri::HTML(html)
+      doc = Nokogiri::HTML(html)
 
   end
 
