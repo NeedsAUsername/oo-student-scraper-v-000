@@ -45,4 +45,4 @@ class Scraper
 
 end
 
-binding.pry
+# binding.pry
