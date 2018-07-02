@@ -26,7 +26,7 @@ class Scraper
           existing_attributes << "#{a.attribute("href".value)}"
       end
       existing_attributes.each do |existing_attribute|
-          if existing_attribute
+          if existing_attribute.include?("")
     #   attributes = {}
     #   doc.css(".social-icon-containter a").attribute("href")
     # #   attributes = []
