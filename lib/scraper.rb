@@ -3,7 +3,7 @@ require 'pry'
 require 'nokogiri'
 
 class Scraper
-    attri_reader :attributes, :links
+    attr_reader :attributes, :links
 
   def self.scrape_index_page(index_url)
       html = open(index_url)
