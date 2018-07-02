@@ -29,6 +29,12 @@ class Scraper
           if existing_attribute.include?("twitter")
               attributes[:twitter] = existing_attribute
           elsif existing_attribute.include?("linkedin")
+              attributes[:linkedin] = existing_attribute
+          elsif existing_attribute.include?("github")
+              attributes[:gitbhub] = existing_attribute
+          end
+      end 
+      attributes
     #   attributes = {}
     #   doc.css(".social-icon-containter a").attribute("href")
     # #   attributes = []
