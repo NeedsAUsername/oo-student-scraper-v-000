@@ -18,11 +18,11 @@ class Scraper
       students
   end
 
-  def attributes
+  def self.attributes
       @@attributes
   end
 
-  def links
+  def self.links
       @@links
   end
 
