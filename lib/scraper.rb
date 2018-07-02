@@ -20,12 +20,12 @@ class Scraper
   def self.scrape_profile_page(profile_url)
       html = open(profile_url)
       doc = Nokogiri::HTML(html)
-      attributes = {}
-      doc.css(".social-containter a").attribute("href")
-    #   attributes = []
-    #
-      #
-    #   attributes
+    #   attributes = {}
+    #   doc.css(".social-containter a").attribute("href")
+    # #   attributes = []
+    # #
+    #   #
+    # #   attributes
   end
 
 end
