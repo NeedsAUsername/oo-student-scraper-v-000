@@ -4,8 +4,6 @@ require 'nokogiri'
 
 class Scraper
 
-    @@attributes = {}
-    @@links = []
 
   def self.scrape_index_page(index_url)
       html = open(index_url)
@@ -20,32 +18,26 @@ class Scraper
       students
   end
 
-  def self.attributes
-      @@attributes
-  end
-
-  def self.links
-      @@links
-  end
 
   def self.scrape_profile_page(profile_url)
       html = open(profile_url)
       doc = Nokogiri::HTML(html)
-      @@attributes = {}
-      @@links = []
+      attributes = {}
+      links = []
       doc.css(".social-icon-containter a").each do |a|
-          @@links << "#{a.attribute("href").value}"
+          links << "#{a.attribute("href").value}"
       end
-      @@links.each do |link|
-          if link.include?("twitter")
-              attributes[:twitter] = link
-          elsif link.include?("linkedin")
-              attributes[:linkedin] = link
-          elsif link.include?("github")
-              attributes[:github] = link
-          end
-      end
-      @@attributes
+      links
+    #   links.each do |link|
+    #       if link.include?("twitter")
+    #           attributes[:twitter] = link
+    #       elsif link.include?("linkedin")
+    #           attributes[:linkedin] = link
+    #       elsif link.include?("github")
+    #           attributes[:github] = link
+    #       end
+    #   end
+    #   attributes
     #   attributes = {}
     #   doc.css(".social-icon-containter a").attribute("href")
     # #   attributes = []
