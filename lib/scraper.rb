@@ -21,7 +21,9 @@ class Scraper
       html = open(profile_url)
       doc = Nokogiri::HTML(html)
       attributs = [{
-          twi
+          twitter: doc.css(".social-icon-container a")[0].attribute("href").value,
+          linkedin: doc.css(".social-icon-container a")[1].attribute("href").value,
+          
       }
       ]
     #   attributes = []
