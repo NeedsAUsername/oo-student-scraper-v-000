@@ -34,9 +34,9 @@ class Scraper
       @@attributes = {}
       @@links = []
       doc.css(".social-icon-containter a").each do |a|
-          links << "#{a.attribute("href").value}"
+          @@links << "#{a.attribute("href").value}"
       end
-      links.each do |link|
+      @@links.each do |link|
           if link.include?("twitter")
               attributes[:twitter] = link
           elsif link.include?("linkedin")
