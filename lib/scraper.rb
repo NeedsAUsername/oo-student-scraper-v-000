@@ -21,17 +21,17 @@ class Scraper
       html = open(profile_url)
       doc = Nokogiri::HTML(html)
       attributes = {}
-      existing_attributes = []
+      links = []
       doc.css(".social-icon-containter a").each do |a|
-          existing_attributes << "#{a.attribute("href").value}"
+          links << "#{a.attribute("href").value}"
       end
-      existing_attributes.each do |existing_attribute|
-          if existing_attribute.include?("twitter")
-              attributes[:twitter] = existing_attribute
-          elsif existing_attribute.include?("linkedin")
-              attributes[:linkedin] = existing_attribute
-          elsif existing_attribute.include?("github")
-              attributes[:gitbhub] = existing_attribute
+      links.each do |link|
+          if link.include?("twitter")
+              attributes[:twitter] = link
+          elsif link.include?("linkedin")
+              attributes[:linkedin] = link
+          elsif link.include?("github")
+              attributes[:gitbhub] = link
           end
       end
       attributes
